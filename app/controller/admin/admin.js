@@ -1,16 +1,24 @@
-'use strict';
-const egg = require('egg');
+"use strict";
+const egg = require("egg");
 module.exports = class AdminController extends egg.Controller {
   async login(ctx) {
-    await ctx.renderClient('admin/login/login.js', {});
+    await ctx.renderClient("admin/login/login.js", {});
   }
   async home(ctx) {
-    const url = ctx.url.replace(/\/admin/, '');
+    const url = ctx.url.replace(/\/admin/, "");
     const { mode } = ctx.query;
-    if (mode === 'csr') {
-      await ctx.renderClient('admin/home/home.js', { ctx, url, title: 'easy-admin' });
+    if (mode === "csr") {
+      await ctx.renderClient("admin/home/home.js", {
+        ctx,
+        url,
+        title: "easy-admin"
+      });
     } else {
-      await ctx.render('admin/home/home.js', { ctx, url, title: 'easy-admin' });
+      await ctx.render("admin/home/home.js", {
+        ctx,
+        url,
+        title: "easy-admin"
+      });
     }
   }
   // 后台中获取新闻list，api接口
@@ -29,7 +37,7 @@ module.exports = class AdminController extends egg.Controller {
   }
   async detail(ctx) {
     const id = ctx.params.id;
-    console.log('>>id', Number(id));
+    console.log(">>id", Number(id));
     ctx.body = this.service.article.getArticle(Number(id));
   }
   // 查询菜单list
