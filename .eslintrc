@@ -40,5 +40,6 @@
     "EASY_ENV_IS_BROWSER": true,
     "EASY_ENV_IS_DEV": true
   },
-  "parser": "babel-eslint"
+  "parser": "babel-eslint",
+  "extends": ["standard", "plugin:vue/recommended"]
 }
