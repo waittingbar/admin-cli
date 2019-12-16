@@ -16,4 +16,8 @@ module.exports = app => {
   router.get('/admin/api/menus/del', controller.admin.admin.menusDel)
   router.get('/admin/api/articleAndMenuTotal', controller.admin.admin.articleAndMenuTotal)
   router.get('/admin(/.+)?', controller.admin.admin.home);
+  // 直播中心
+  router.get('/zhibo', controller.zhibo.zhibo.index);
+  router.get('/zhibo/api/list', controller.zhibo.zhibo.list);
+  // router.get('/zhibo/api/list', controller.zhibo.zhibo.list);
 };

@@ -15,7 +15,7 @@ module.exports = class ArticeService extends egg.Service {
     let sql = '', list =  [], total;
     if (title && title.length) {
       sql = "select id, title, summary, url,DATE_FORMAT(time,'%Y-%m-%d %T') time FROM news where title like ? LIMIT ?,?";
-      list = await this.app.mysql.query(sql,['%'+title+'%',pageIndex * pageSize - pageSize ,pageSize]);
+      list = await this.app.mysql.query(sql,['%'+title+'%',(pageIndex - 1) * pageSize, pageSize]);
       total = await this.app.mysql.query('select COUNT(*) sum FROM news where title like ?', ['%'+title+'%']);
     } else {
       total = await this.app.mysql.query('select COUNT(*) sum FROM news');
@@ -23,7 +23,7 @@ module.exports = class ArticeService extends egg.Service {
       if (json == undefined) {
         list = await this.app.mysql.query(sql,[0 ,total[0].sum]);
       } else {
-        list = await this.app.mysql.query(sql,[pageIndex * pageSize - pageSize ,pageSize]);
+        list = await this.app.mysql.query(sql,[(pageIndex - 1) * pageSize ,pageSize]);
       }
     }
     return {list, total: total[0].sum};

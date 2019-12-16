@@ -8,7 +8,7 @@ module.exports = class MenusService extends egg.Service {
     let sql = '', list =  [], total;
     if (name && name.length) {
       sql = "select * FROM category where name like ? LIMIT ?,?";
-      list = await this.app.mysql.query(sql,['%'+name+'%',pageIndex * pageSize - pageSize ,pageSize]);
+      list = await this.app.mysql.query(sql,['%'+name+'%',(pageIndex - 1) * pageSize ,pageSize]);
       total = await this.app.mysql.query('select COUNT(*) sum FROM category where name like ?', ['%'+name+'%']);
     } else {
       total = await this.app.mysql.query('select COUNT(*) sum FROM category');
@@ -16,7 +16,7 @@ module.exports = class MenusService extends egg.Service {
       if (json == undefined) {
         list = await this.app.mysql.query(sql,[0 ,total[0].sum]);
       } else {
-        list = await this.app.mysql.query(sql,[pageIndex * pageSize - pageSize ,pageSize]);
+        list = await this.app.mysql.query(sql,[(pageIndex - 1) * pageSize ,pageSize]);
       }
     }
     return {list, total: total[0].sum};
