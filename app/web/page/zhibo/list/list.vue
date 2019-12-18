@@ -9,17 +9,26 @@
               <span>{{item.title}}</span>
               <div class="bottom clearfix">
                 <time class="time">{{ item.time }}</time>
-                <el-button type="text" class="button">进入直播</el-button>
+                <el-button type="text" class="button" @click="goZhiboDetail(item.id)">进入直播</el-button>
               </div>
             </div>
           </el-card>
         </el-col>
       </el-row>
+      <el-pagination
+        @size-change="handleSizeChange"
+        @current-change="handleCurrentChange"
+        :current-page="pageIndex"
+        :page-sizes="[10, 20, 30, 50]"
+        :page-size="pageSize"
+        layout="total, sizes, prev, pager, next, jumper"
+        :total="total"
+      ></el-pagination>
     </div>
   </layout>
 </template>
 <style scope>
-@import "zhibo.css";
+@import "list.css";
 .time {
   font-size: 13px;
   color: #999;
@@ -58,13 +67,14 @@
 </style>
 <script type='babel'>
 import Vue from "vue";
-import { Button, Select, Table, TableColumn, Row, Col, Card } from "element-ui";
+import { Button, Select, Table, TableColumn, Row, Col, Card, Pagination } from "element-ui";
 Vue.use(Button);
 Vue.use(Table);
 Vue.use(TableColumn);
 Vue.use(Row);
 Vue.use(Col);
 Vue.use(Card);
+Vue.use(Pagination);
 export default {
   components: {},
   data() {
@@ -78,7 +88,8 @@ export default {
         pageIndex: 1,
         pageSize: 10
       },
-      list: []
+      list: [],
+      total: 0
     };
   },
   computed: {
@@ -111,6 +122,15 @@ export default {
           this.fetch(this.params);
         }, 1500);
       }
+    },
+    handleSizeChange(val) {
+      console.log(`每页 ${val} 条`);
+    },
+    handleCurrentChange(val) {
+      console.log(`当前页: ${val}`);
+    },
+    goZhiboDetail(id) {
+      window.location.href = `/zhibo/detail/${id}`;
     }
   },
   created() {

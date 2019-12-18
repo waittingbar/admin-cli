@@ -28,6 +28,14 @@ export default function createRouter() {
         component: () => import('../view/detail.vue')
       },
       {
+        path: '/zhibo/list',
+        component: () => import('../view/zhibo/list.vue')
+      },
+      {
+        path: '/zhibo/graburl',
+        component: () => import('../view/zhibo/grabUrl.vue')
+      },
+      {
         path: '*', component: () => import('../view/notfound.vue')
       }
     ]

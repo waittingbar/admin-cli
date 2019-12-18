@@ -11,7 +11,18 @@ module.exports = class ZhiboService extends egg.Service {
     return {
       status: true,
       list,
-      total
+      total: total[0].sum
     };
+  };
+  async getDetail(id) {
+    if (id) {
+      let sql = 'SELECT * FROM zhibo WHERE id = ?'
+      const detail = await this.app.mysql.query(sql, id)
+      return {
+        code: 200,
+        status: true,
+        detail: detail&&detail.length ? detail[0]: []
+      }
+    }
   }
 }

@@ -18,6 +18,9 @@ module.exports = app => {
   router.get('/admin(/.+)?', controller.admin.admin.home);
   // 直播中心
   router.get('/zhibo', controller.zhibo.zhibo.index);
+  router.get('/zhibo/detail/:id', controller.zhibo.zhibo.detail);
   router.get('/zhibo/api/list', controller.zhibo.zhibo.list);
+  router.get('/zhibo/api/detail/:id', controller.zhibo.zhibo.detailInfo);
+  // router.get('/zhibo/api/detail', controller.zhibo.zhibo.detail);
   // router.get('/zhibo/api/list', controller.zhibo.zhibo.list);
 };
