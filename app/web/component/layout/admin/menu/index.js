@@ -25,6 +25,22 @@ const menu = {
         path: '/menus/list'
       }
     }
+  }, 
+  zhibocontent: {
+    name: 'menu.zhibomanage',
+    icon: 'el-icon-document',
+    children: {
+      list: {
+        name: 'menu.zhiboList',
+        icon: 'el-icon-edit-outline',
+        path: '/zhibo/list'
+      },
+      grab: {
+        name: 'menu.zhibograb',
+        icon: 'el-icon-edit-outline',
+        path: '/zhibo/graburl'
+      }
+    }
   }
 };
 

@@ -5,7 +5,10 @@ export default {
     articlequery: 'Article Query',
     articleadd: 'Article Add',
     menumanage: 'MenuManage',
-    menuquery: 'MenuQuery'
+    menuquery: 'MenuQuery',
+    zhibomanage: 'ZhiboManage',
+    zhiboList: 'ZhiboList',
+    zhibograb: 'ZhiboGrab'
   },
   lang: {
     href: '/admin?locale=cn',

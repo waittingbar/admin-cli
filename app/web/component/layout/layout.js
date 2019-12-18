@@ -38,6 +38,7 @@ export default function createLayout(name, components, tpl) {
                       <link rel="apple-touch-icon" href="/logo.png">
                       <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
                       <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+                      <script src="https://cdn.bootcss.com/flv.js/1.5.0/flv.min.js"></script>
                     </head>
                     <body :class="baseClass">
                       ${tpl}
