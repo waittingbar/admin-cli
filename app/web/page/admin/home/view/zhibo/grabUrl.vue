@@ -20,17 +20,23 @@
 .admin-controller {
   /* padding: 20px; */
   /* text-align: center; */
+  height: 90vh;
 }
 .admin-controller .search {
   width: 80%;
-  margin: 0 auto;
+  margin: 10px auto;
 }
 .iframe-content {
-  border: 1px solid red;
-  width: 300px;
-  height: 100px;
-  margin: 50px auto;
+  border: 1px solid #DCDFE6;
+  border-radius: 4px;
+  width: 80%;
+  height: 80%;
+  margin: 0 auto;
   visibility: visible;
+}
+.iframe-content iframe {
+  width: 100%;
+  height: 100%;
 }
 </style>
 <script type="babel">
@@ -39,7 +45,7 @@ export default {
   data() {
     return {
       isloading: false,
-      iframeUrl: "https://www.huya.com/s"
+      iframeUrl: ""
       // https://www.huya.com/s
     };
   },
