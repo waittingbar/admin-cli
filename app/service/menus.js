@@ -44,8 +44,9 @@ module.exports = class MenusService extends egg.Service {
     try {
      let mTotal = await conn.query('select COUNT(*) sum FROM category');
      let aTotal = await conn.query('select COUNT(*) sum FROM news');
+     let zTotal = await conn.query('select COUNT(*) sum FROM zhibo');
       await conn.commit();
-      return {aTotal: aTotal[0].sum, mTotal: mTotal[0].sum}
+      return {aTotal: aTotal[0].sum, mTotal: mTotal[0].sum, zTotal: zTotal[0].sum}
     }catch(err) {
       await conn.rollback(); // 回滚事务
       throw err;

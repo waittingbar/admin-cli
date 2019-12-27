@@ -6,7 +6,7 @@
           <el-card :body-style="{ padding: '0px' }">
             <img src="https://element.eleme.cn/2.0/static/hamburger.50e4091.png" class="image" />
             <div style="padding: 14px;">
-              <span>{{item.title}}</span>
+              <span class="ellopsis-row">{{item.title}}</span>
               <div class="bottom clearfix">
                 <time class="time">{{ item.time }}</time>
                 <el-button type="text" class="button" @click="goZhiboDetail(item.id)">进入直播</el-button>
@@ -29,45 +29,19 @@
 </template>
 <style scope>
 @import "list.css";
-.time {
-  font-size: 13px;
-  color: #999;
-}
-
-.bottom {
-  margin-top: 13px;
-  line-height: 12px;
-}
-
-.button {
-  padding: 0;
-  float: right;
-}
-
-.image {
-  width: 100%;
-  display: block;
-}
-
-.clearfix:before,
-.clearfix:after {
-  display: table;
-  content: "";
-}
-
-.clearfix:after {
-  clear: both;
-}
-.el-row {
-  margin-bottom: 20px;
-}
-.el-row::last-child {
-  margin-bottom: 0;
-}
 </style>
 <script type='babel'>
 import Vue from "vue";
-import { Button, Select, Table, TableColumn, Row, Col, Card, Pagination } from "element-ui";
+import {
+  Button,
+  Select,
+  Table,
+  TableColumn,
+  Row,
+  Col,
+  Card,
+  Pagination
+} from "element-ui";
 Vue.use(Button);
 Vue.use(Table);
 Vue.use(TableColumn);
@@ -75,8 +49,9 @@ Vue.use(Row);
 Vue.use(Col);
 Vue.use(Card);
 Vue.use(Pagination);
+// Vue.use(Pagination);
 export default {
-  components: {},
+  // components: {elPagination: Pagination},
   data() {
     return {
       currentDate: new Date(),

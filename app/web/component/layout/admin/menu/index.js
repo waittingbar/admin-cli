@@ -41,6 +41,22 @@ const menu = {
         path: '/zhibo/graburl'
       }
     }
+  },
+  manufactor: {
+    name: 'menu.manufactormanage',
+    icon: 'el-icon-document',
+    children: {
+      mlist: {
+        name: 'menu.manufactorList',
+        icon: 'el-icon-edit-outline',
+        path: '/product/manufactorlist'
+      },
+      blist: {
+        name: 'menu.brandList',
+        icon: 'el-icon-edit-outline',
+        path: '/product/brandlist'
+      }
+    }
   }
 };
 

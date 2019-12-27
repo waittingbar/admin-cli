@@ -36,6 +36,14 @@ export default function createRouter() {
         component: () => import('../view/zhibo/grabUrl.vue')
       },
       {
+        path: '/product/manufactorlist',
+        component: () => import('../view/product/manufactor.vue')
+      },
+      {
+        path: '/product/brandlist',
+        component: () => import('../view/product/brand.vue')
+      },
+      {
         path: '*', component: () => import('../view/notfound.vue')
       }
     ]

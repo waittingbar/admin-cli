@@ -1,24 +1,35 @@
 <template>
   <el-row class="panel-group" :gutter="40">
-    <el-col :xs="12" :sm="12" :lg="12" class="card-panel-col">
-      <div class='card-panel' @click="goArticle">
+    <el-col :xs="8" :sm="8" :lg="8" class="card-panel-col">
+      <div class="card-panel" @click="goArticle">
         <!-- <div class="card-panel-icon-wrapper icon-people">
           <div icon-class="peoples" class-name="card-panel-icon"></div>
-        </div> -->
+        </div>-->
         <div class="card-panel-description">
           <div class="card-panel-text">新闻总数</div>
           <span class="card-panel-num">{{articleTotal}}</span>
         </div>
       </div>
     </el-col>
-    <el-col :xs="12" :sm="12" :lg="12" class="card-panel-col">
+    <el-col :xs="8" :sm="8" :lg="8" class="card-panel-col">
       <div class="card-panel" @click="goMenus">
         <!-- <div class="card-panel-icon-wrapper icon-message">
           <div icon-class="message" class-name="card-panel-icon" ></div>
-        </div> -->
+        </div>-->
         <div class="card-panel-description">
           <div class="card-panel-text">菜单总数</div>
           <span class="card-panel-num">{{munusTotal}}</span>
+        </div>
+      </div>
+    </el-col>
+    <el-col :xs="8" :sm="8" :lg="8" class="card-panel-col">
+      <div class="card-panel" @click="goZhibo">
+        <!-- <div class="card-panel-icon-wrapper icon-message">
+          <div icon-class="message" class-name="card-panel-icon" ></div>
+        </div>-->
+        <div class="card-panel-description">
+          <div class="card-panel-text">直播总数</div>
+          <span class="card-panel-num">{{zhiboTotal}}</span>
         </div>
       </div>
     </el-col>
@@ -30,27 +41,33 @@ export default {
   data() {
     return {
       articleTotal: 0,
-      munusTotal: 0
-    }
+      munusTotal: 0,
+      zhiboTotal: 0
+    };
   },
   components: {},
   methods: {
     handleFetchData() {
-      this.$request.get(`/admin/api/articleAndMenuTotal`).then(res=> {
-          if(res.data){
-            this.articleTotal = res.data.aTotal;
-            this.munusTotal = res.data.mTotal;
-          }else{
-            this.articleTotal = 0;
-            this.munusTotal = 0;
-          }
+      this.$request.get(`/admin/api/articleAndMenuTotal`).then(res => {
+        if (res.data) {
+          this.articleTotal = res.data.aTotal;
+          this.munusTotal = res.data.mTotal;
+          this.zhiboTotal = res.data.zTotal;
+        } else {
+          this.articleTotal = 0;
+          this.munusTotal = 0;
+          this.zhiboTotal = 0;
+        }
       });
     },
     goArticle() {
-      this.$router.push({path:'/article/list'})
+      this.$router.push({ path: "/article/list" });
     },
     goMenus() {
-      this.$router.push({path:'/menus/list'})
+      this.$router.push({ path: "/menus/list" });
+    },
+    goZhibo() {
+      this.$router.push({ path: '/zhibo/list' })
     }
   },
   created() {

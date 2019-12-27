@@ -9,7 +9,10 @@ export default {
     menuquery: '菜单列表',
     zhibomanage: '直播管理',
     zhiboList: '直播列表',
-    zhibograb: '获取地址'
+    zhibograb: '获取地址',
+    manufactormanage: '商品管理',
+    manufactorList: '厂家列表',
+    brandList: '品牌列表',
   },
   lang: {
     href: '/admin?locale=en',

@@ -8,7 +8,10 @@ export default {
     menuquery: 'MenuQuery',
     zhibomanage: 'ZhiboManage',
     zhiboList: 'ZhiboList',
-    zhibograb: 'ZhiboGrab'
+    zhibograb: 'ZhiboGrab',
+    manufactormanage: 'manufactorManage',
+    manufactorList: 'manufactorList',
+    brandList: 'brandList',
   },
   lang: {
     href: '/admin?locale=cn',

@@ -42,6 +42,7 @@ module.exports = class AdminController extends egg.Controller {
   }
   // 查询菜单list
   async menusList(ctx) {
+    console.log('>>>>123:', ctx)
     ctx.body = await this.ctx.service.menus.getMenusList(ctx.request.query);
   }
   async menusAdd(ctx) {
@@ -55,5 +56,27 @@ module.exports = class AdminController extends egg.Controller {
   // 获取后台首页的合计数据
   async articleAndMenuTotal(ctx) {
     ctx.body = await this.ctx.service.menus.getarticleAndMenuTotal();
+  }
+  // 查询厂家list
+  async manufactorList(ctx) {
+    ctx.body = await this.ctx.service.product.getmanufactorList(ctx.request.query);
+  }
+  async manufactorAdd(ctx) {
+    ctx.body = await this.ctx.service.product.saveManufactor(ctx.request.body);
+  }
+  async manufactorDel(ctx) {
+    const { id } = ctx.request.query;
+    ctx.body = await this.ctx.service.product.delManufactor(id);
+  }
+  // 查询品牌list
+  async brandList(ctx) {
+    ctx.body = await this.ctx.service.product.getbrandList(ctx.request.query);
+  }
+  async brandAdd(ctx) {
+    ctx.body = await this.ctx.service.product.savebrand(ctx.request.body);
+  }
+  async brandDel(ctx) {
+    const { id } = ctx.request.query;
+    ctx.body = await this.ctx.service.product.delbrand(id);
   }
 };

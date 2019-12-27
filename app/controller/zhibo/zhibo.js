@@ -1,8 +1,8 @@
 "use strict";
 const Controller = require('egg').Controller;
 class ZhiboController extends Controller {
-  async index() {
-    const {ctx, service } = this;
+  async index(ctx) {
+    // const {ctx, service } = this;
     await ctx.render('zhibo/list/list.js');
   };
   async detail(ctx) {
