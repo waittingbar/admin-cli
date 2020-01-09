@@ -26,7 +26,7 @@
       <el-table-column prop="id" align="center" width="100" label="序号"></el-table-column>
       <el-table-column prop="brand_code" align="center" label="品牌code"></el-table-column>
       <el-table-column prop="brand_name" align="center" label="品牌名称"></el-table-column>
-      <el-table-column prop="brand_manufacturer_name" align="center" label="所属品牌"></el-table-column>
+      <el-table-column prop="brand_manufacturer_name" align="center" label="所属厂家"></el-table-column>
       <el-table-column label="操作" align="center" width="180">
         <template slot-scope="props">
           <router-link :to="{params: {id: props.row.id}}" tag="span">
@@ -77,7 +77,7 @@
           <el-input class="form-context-length" v-model="form.name" auto-complete="off"></el-input>
         </el-form-item>
         <el-form-item label="所属厂家" prop="manufactorId" :label-width="formLabelWidth">
-          <el-select style="width: 374px" v-model="form.manufactorId" placeholder="请选择厂家">
+          <el-select style="width: 374px" v-model="form.manufactorId" placeholder="请选择厂家" @change="selectWorkName()">
             <el-option
               v-for="item in optionsList"
               :key="item.manufactor_code"
@@ -161,6 +161,9 @@ export default {
         }
       });
     },
+    selectWorkName(id) {
+      this.form.manufactorName = this.optionsList.find((item)=>{return item.manufactorId === id})
+    },
     query() {
       const params = this.params;
       params.pageIndex = 1;
@@ -168,11 +171,10 @@ export default {
     },
     openDialog(type, row) {
       this.form = {
-        name: type === "edit" ? row.manufactor_name : undefined,
+        name: type === "edit" ? row.brand_name : undefined,
         manufactorId: type === "edit" ? row.brand_manufacturer_Id : undefined,
-        manufactorName:
-          type === "edit" ? row.brand_manufacturer_name : undefined,
-        id: type === "edit" ? row.id : undefined
+        manufactorName:type === "edit" ? row.brand_manufacturer_name : undefined,
+        code: type === "edit" ? row.brand_code : undefined
       };
       // this.$refs.form.resetFields();
       this.dialogFormVisible = true;

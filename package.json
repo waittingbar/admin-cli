@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "egg-bin dev",
     "start": "egg-scripts start",
+    "stop": "egg-scripts stop",
     "debug": "egg-bin debug",
     "clean": "easy clean all",
     "build": "easy build prod",
@@ -53,7 +54,9 @@
     "eslint": "^4.19.1",
     "eslint-config-egg": "^5.0.0",
     "eslint-plugin-vue": "^4.4.0",
-    "ip": "^1.1.5"
+    "ip": "^1.1.5",
+    "stylus": "^0.54.7",
+    "stylus-loader": "^3.0.2"
   },
   "engines": {
     "node": ">=8.0.0"

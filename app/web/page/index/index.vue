@@ -20,8 +20,8 @@
     </div>
   </layout>
 </template>
-<style>
-  @import "index.css";
+<style lang="stylus">
+  @import "index.styl";
 </style>
 <script type="babel">
   export default {

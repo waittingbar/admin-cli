@@ -20,7 +20,8 @@ module.exports = {
             "styleLibraryName": "theme-chalk"
           }
         ],        
-        "@babel/plugin-syntax-dynamic-import"
+        "@babel/plugin-syntax-dynamic-import",
+        "@babel/plugin-transform-runtime"
       ]
     },
     "web": {
@@ -48,7 +49,8 @@ module.exports = {
         ],
         "@babel/plugin-proposal-object-rest-spread",
         "@babel/plugin-syntax-dynamic-import",
-        "@babel/plugin-transform-object-assign"
+        "@babel/plugin-transform-object-assign",
+        "@babel/plugin-transform-runtime"
       ]
     }
   }

@@ -1,0 +1,38 @@
+// 定义变量
+color = #555;
+color1 = #eee;
+// Mixins 函数
+error(borderWidth = 2px, color = #eee) {
+  border-bottom borderWidth solid color;
+}
+border-radius(values) {
+  -webkit-border-radius: values;
+     -moz-border-radius: values;
+          border-radius: values;
+}
+text3d(color) {
+  text-shadow: 1px 1px 0px darken(@color, 5%),2px 2px 0px darken(color, 10%),3px 3px 0px darken(color, 15%),4px 4px 0px darken(color, 20%),4px 4px 2px #000;	
+}
+
+
+.font20
+  font-size 15px + 15px
+.post-title
+  a
+    color color
+    @extend .font20
+    border-radius(4px)
+    text3d(#eee)
+    &:hover
+      // color lighten(color, 50%) // 变亮
+      color darken(color, 50%) // 变暗
+      // color saturate(color, 50%) // 增加饱和度
+      // color desaturate(color, 50%) // 减少饱和度
+      // color grayscale(color) // 灰度色
+      // color complement(color) // 补色
+      // color invert(color) // 反相色
+      // color mix(color,color1, 50%) // 混合
+
+.post-preview
+  hr
+    error(1px, #ccc)

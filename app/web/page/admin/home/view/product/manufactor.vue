@@ -19,6 +19,7 @@
           width="55">
         </el-table-column>
         <el-table-column
+          width="100"
           prop="id"
           align="center"
           label="序号">
