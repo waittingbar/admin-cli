@@ -7,8 +7,8 @@
 </template>
 <script type="babel">
 import Vue from 'vue';
-import 'element-ui/lib/theme-chalk/index.css';
 import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
 import VueI18n from 'vue-i18n';
 import createI18n from 'framework/i18n/admin';
 import store from './store/app';
@@ -16,7 +16,7 @@ import router from './router';
 import AdminLayout from 'component/layout/admin';
 
 Vue.use(ElementUI);
-Vue.component(VueI18n.name, VueI18n);
+Vue.use(VueI18n);
 
 export default {
   router,
