@@ -4,8 +4,7 @@
   "description": "基于 easywebpack-vue 和 egg-view-vue-ssr 插件的 Egg + Vue SSR 服务端渲染同构工程骨架项目",
   "scripts": {
     "dev": "egg-bin dev",
-    "start": "egg-scripts start",
-    "backend": "nohup egg-scripts start",
+    "start": "egg-scripts start --port=7001 --daemon",
     "stop": "egg-scripts stop",
     "debug": "egg-bin debug",
     "clean": "easy clean all",
