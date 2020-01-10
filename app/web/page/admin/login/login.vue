@@ -1,9 +1,9 @@
 <template>
 <div class="login">
     <div class="login-form">
-      <div class="login-header">
+      <!-- <div class="login-header">
         <img src="../../../asset/images/logo.png" height="100" alt="">
-      </div>
+      </div> -->
       <div class="login-info">
         <el-input
             placeholder="请输入用户名"

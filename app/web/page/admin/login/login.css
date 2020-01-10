@@ -14,8 +14,8 @@
 
 .login .login-form {
   width: 375px;
-  height: 400px;
-  padding: 30px;
+  /* height: 400px; */
+  padding: 40px 30px;
   background-color: white;
   text-align: left;
   border-radius: 4px;
