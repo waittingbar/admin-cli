@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "egg-bin dev",
     "start": "egg-scripts start",
+    "backend": "nohup egg-scripts start",
     "stop": "egg-scripts stop",
     "debug": "egg-bin debug",
     "clean": "easy clean all",
