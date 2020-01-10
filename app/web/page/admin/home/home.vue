@@ -6,7 +6,6 @@
   </AdminLayout>
 </template>
 <script type="babel">
-
 import Vue from 'vue';
 import 'element-ui/lib/theme-chalk/index.css';
 import ElementUI from 'element-ui';
@@ -17,7 +16,7 @@ import router from './router';
 import AdminLayout from 'component/layout/admin';
 
 Vue.use(ElementUI);
-Vue.use(VueI18n);
+Vue.component(VueI18n.name, VueI18n);
 
 export default {
   router,
