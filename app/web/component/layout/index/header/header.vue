@@ -9,7 +9,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/">Egg Vue</a>
+                <a class="navbar-brand" href="/">开发者练习（如有侵权请联系（928864229））</a>
             </div>
             <div class="collapse navbar-collapse" :class="{ 'collapse in': collapsed }" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right" :key="item.id" v-for="item in list">
