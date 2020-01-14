@@ -1,24 +1,15 @@
-<template>
-  <layout description="首页" keywords="首页关键字">
-    <div class="container">
-      <div class="row" :key="item.id" v-for="item in list">
-        <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
-          <div class="post-preview">
-              <div :href="item.url">
-                  <h2 class="post-title">            
-                      <a :href="item.url" target="_blank" style="font-size: 26px;">{{item.title}}</a>
-                  </h2>
-              </div>
-              <!-- <div class="post-meta">{{ helper.relativeTime(item.time) }}</div> -->
-          </div>
+<template lang="pug">
+  layout(description="首页" keywords="首页关键字")
+    div(class="container")
+      div(class="row" :key="item.id" v-for="item in list")
+        div(class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1")
+          div(class="post-preview")
+            div(:href="item.url")
+              h2(class="post-title")            
+                a(:href="item.url" target="_blank" style="font-size: 26px;") {{item.title}}
           <hr>
-        </div>
-      </div>
-    </div>
-    <div style="text-align:center" v-if="isLoading">
-       <img src="../../asset/images/loading.gif">
-    </div>
-  </layout>
+    div(style="text-align:center" v-if="isLoading")
+      img(src="../../asset/images/loading.gif")
 </template>
 <style lang="stylus">
   @import "index.styl";

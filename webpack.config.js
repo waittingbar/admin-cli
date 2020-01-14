@@ -3,6 +3,12 @@
 module.exports = {
   plugins: [{ imagemini: false }],
   module: {
-    rules: [{ stylus: true }]
+    rules: [
+      { stylus: true },
+      {
+        test: /\.pug$/,
+        use: ['pug-plain-loader']
+      }
+    ]
   }
 };
