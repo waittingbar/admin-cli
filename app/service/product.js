@@ -90,41 +90,54 @@ module.exports = class productService extends egg.Service {
     return {list, total: total[0].sum};
   };
   async savebrand(json) {
-    let result = [], data = {},errorJosn = {
+    let result = [], data = {}, errorJosn = {
       code: '500',
       success: false,
       message: ''
     };
+    if (json.name) {
+      data.brand_name = json.name;
+    } else {
+      errorJosn.message = '请输入品牌名称'
+      return result = errorJosn
+    }
+    if (json.manufactorId) {
+      const sql = "select manufactor_brands FROM product_manufactor where manufactor_code = ?";
+      const manufaBrandObj = await this.app.mysql.query(sql,[json.manufactorId]);
+      const mbObj = manufaBrandObj[0].manufactor_brands;
+      let newManufaBrandList = '';
+      console.log('>>>>manufaObj:', manufaBrandObj)
+      console.log('>>>>mbObj:', mbObj)
+      let status = true;
+      if (mbObj !== null && mbObj !== '') {
+        const manufaBrandList = mbObj.toString().split(',');
+        console.log('>>>>manufaBrandList:', manufaBrandList)
+        manufaBrandList.map(item=> {
+          if (item === json.name) {
+            status = false
+          }
+        })
+        newManufaBrandList = mbObj+','+json.name
+      } else {
+        newManufaBrandList = json.name;
+      }
+      if(status) {
+        const sql = "update product_manufactor set manufactor_brands = ? where manufactor_code = ?"
+        this.app.mysql.query(sql, [newManufaBrandList, json.manufactorId]);
+      }
+      data.brand_manufacturer_Id = json.manufactorId;
+      data.brand_manufacturer_name = json.manufactorName;
+
+    } else {
+      errorJosn.message = '请选择所属厂家'
+      return result = errorJosn
+    }
+    // 此处需要先查询厂家表，判断是否品牌是否已存在
+
     if (json.id) {
-      if (json.name) {
-        data.brand_name = json.name;
-      } else {
-        errorJosn.message = '请输入品牌名称'
-        return result = errorJosn
-      }
-      if (json.manufactorId) {
-        data.brand_manufacturer_Id = json.manufactorId;
-        data.brand_manufacturer_name = json.manufactorName;
-      } else {
-        errorJosn.message = '请选择所属厂家'
-        return result = errorJosn
-      }
       data.id = json.id;
       result = this.app.mysql.update('product_brand', data);
     } else {
-      if (json.name) {
-        data.brand_name = json.name;
-      } else {
-        errorJosn.message = '请输入品牌名称'
-        return result = errorJosn
-      }
-      if (json.manufactorId) {
-        data.brand_manufacturer_Id = json.manufactorId;
-        data.brand_manufacturer_name = json.manufactorName;
-      } else {
-        errorJosn.message = '请选择所属厂家'
-        return result = errorJosn
-      }
       data.brand_code = 'b2019-'+(~~(Math.random() * (1 << 30))).toString(36);// 生成唯一id
       data.create_time = '2019-12-27';// 生成唯一id
       result = this.app.mysql.insert('product_brand', data);

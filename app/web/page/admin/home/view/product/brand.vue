@@ -77,7 +77,7 @@
           <el-input class="form-context-length" v-model="form.name" auto-complete="off"></el-input>
         </el-form-item>
         <el-form-item label="所属厂家" prop="manufactorId" :label-width="formLabelWidth">
-          <el-select style="width: 374px" v-model="form.manufactorId" placeholder="请选择厂家" @change="selectWorkName()">
+          <el-select style="width: 374px" v-model="form.manufactorId" placeholder="请选择厂家" @change="selectWorkName($event)">
             <el-option
               v-for="item in optionsList"
               :key="item.manufactor_code"
@@ -162,7 +162,8 @@ export default {
       });
     },
     selectWorkName(id) {
-      this.form.manufactorName = this.optionsList.find((item)=>{return item.manufactorId === id})
+      const obj = this.optionsList.find((item)=>{return item.manufactor_code === id});
+      this.form.manufactorName = obj.manufactor_name;
     },
     query() {
       const params = this.params;
@@ -174,7 +175,7 @@ export default {
         name: type === "edit" ? row.brand_name : undefined,
         manufactorId: type === "edit" ? row.brand_manufacturer_Id : undefined,
         manufactorName:type === "edit" ? row.brand_manufacturer_name : undefined,
-        code: type === "edit" ? row.brand_code : undefined
+        id: type === "edit" ? row.id : undefined
       };
       // this.$refs.form.resetFields();
       this.dialogFormVisible = true;
