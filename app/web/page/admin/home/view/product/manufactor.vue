@@ -40,6 +40,11 @@
           label="厂家地址">
         </el-table-column>
         <el-table-column
+          prop="manufactor_brands"
+          align="center"
+          label="所有品牌">
+        </el-table-column>
+        <el-table-column
           label="操作"
           align="center"
           width="180">
