@@ -65,7 +65,7 @@ module.exports = app => {
     user: 'root',
     // 密码
     // password: '928864229LPF!',
-    password: '928864229',
+    password: '928864229Lpf!',
     // 数据库名
     database: 'eggdb',
   },
